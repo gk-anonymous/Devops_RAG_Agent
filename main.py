@@ -3,11 +3,21 @@ import glob
 import numpy as np
 import streamlit as st
 import google.generativeai as genai
+from dotenv import load_dotenv
+
+# -----------------------------
+# Load environment variables
+# -----------------------------
+load_dotenv()  # Load .env file
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    st.error("Please set GEMINI_API_KEY in your .env file!")
+    st.stop()
 
 # -----------------------------
 # Gemini setup
 # -----------------------------
-genai.configure(api_key="AIzaSyAiZgsPffB_FCgwlJnOulD9UXHL9ZTG69E")  # Replace with your Gemini API key
+genai.configure(api_key=GEMINI_API_KEY)
 MODEL = "gemini-2.5-pro"
 EMBED = "models/text-embedding-004"
 
