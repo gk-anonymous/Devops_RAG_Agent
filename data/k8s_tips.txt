@@ -1,0 +1,23 @@
+Kubernetes Tips and Troubleshooting Guide
+
+1. Pod Restarts:
+   - Check pod events using: kubectl describe pod <pod-name>
+   - Common causes: CrashLoopBackOff, OOMKilled, Readiness/Liveness probe failures
+   - Solution: Increase resources in deployment YAML, fix probe endpoints, or check node resource limits
+
+2. Scaling Applications:
+   - Use Horizontal Pod Autoscaler (HPA) with metrics like CPU or memory
+   - Example: kubectl autoscale deployment web --cpu-percent=50 --min=2 --max=10
+
+3. Persistent Storage:
+   - Use PersistentVolume (PV) and PersistentVolumeClaim (PVC) for stateful workloads
+   - Check PVC status with: kubectl get pvc
+
+4. Networking:
+   - Use Services (ClusterIP, NodePort, LoadBalancer) to expose apps
+   - For ingress traffic, configure an Ingress Controller (e.g., Nginx Ingress)
+
+5. Monitoring:
+   - Use kubectl top pod to check CPU/Memory usage
+   - Integrate Prometheus and Grafana for real-time dashboards
+

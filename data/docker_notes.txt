@@ -1,0 +1,26 @@
+Docker Notes and Best Practices
+
+1. Dockerfile Optimization:
+   - Always start with a lightweight base image (e.g., python:3.9-slim)
+   - Use multi-stage builds to reduce final image size
+   - Clean up unnecessary packages and caches in the same RUN layer
+
+2. Container Management:
+   - Use docker ps to list running containers
+   - Use docker logs <container-id> to debug application issues
+   - Restart policy: Use --restart unless-stopped to auto-restart containers
+
+3. Networking:
+   - Default bridge network isolates containers
+   - Use user-defined bridge networks for easier DNS resolution between containers
+   - Example: docker network create mynet
+
+4. Volumes:
+   - Use volumes for persistent data: docker volume create data_volume
+   - Mount with: docker run -v data_volume:/app/data myimage
+
+5. Security:
+   - Run containers as non-root users whenever possible
+   - Keep images updated with security patches
+   - Use docker scan to check for vulnerabilities
+
