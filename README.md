@@ -1,103 +1,138 @@
-🐳☸ DevOps RAG AI Agent
+# 🐳☸ DevOps RAG AI Agent
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://devopsragagent-mtpwmqrkxn2drsmvvm2rnw.streamlit.app/)
+![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 A smart AI assistant for Docker & Kubernetes that helps DevOps engineers quickly diagnose issues, suggest fixes, and provide step-by-step guidance. Built with Gemini AI, Python, and Streamlit, this project combines RAG (Retrieval-Augmented Generation) with conversational memory for accurate, context-aware responses.
 
-🚀 Live Demo
+![DevOps RAG Agent Demo](https://via.placeholder.com/800x400?text=DevOps+RAG+Agent+Demo+Screenshot)
 
-Try the app online:
-Try it Now →
+## 🚀 Live Demo
 
-🛠 Features
+Try the app online:  
+👉 [https://devopsragagent-mtpwmqrkxn2drsmvvm2rnw.streamlit.app/](https://devopsragagent-mtpwmqrkxn2drsmvvm2rnw.streamlit.app/)
 
-🔍 Instant Issue Diagnosis: Paste logs or describe your problem, and get step-by-step solutions.
+## 🛠 Features
 
-📂 Contextual Answers: AI answers are based on your documents and previous conversation.
+| Feature | Description |
+|---------|-------------|
+| 🔍 **Instant Issue Diagnosis** | Paste logs or describe your problem, get step-by-step solutions |
+| 📂 **Contextual Answers** | AI responses based on your documents and conversation history |
+| 💬 **Conversation Memory** | Maintains session history for context-aware follow-ups |
+| 🐳 **Docker Support** | Specialized troubleshooting for container environments |
+| ☸ **Kubernetes Expertise** | Focused guidance for K8s clusters and deployments |
+| ⚡ **Interactive UI** | Streamlit-powered interface for smooth user experience |
 
-💬 Conversation History: Maintains session history to provide context-aware follow-ups.
+## 📦 Installation
 
-🐳☸ Docker & Kubernetes Support: Focused guidance for containerized environments.
+### Prerequisites
+- Python 3.10+
+- [Gemini API Key](https://ai.google.dev/)
 
-⚡ Fast & Interactive: Built with Streamlit for an interactive UI.
+### Setup Instructions
 
-📁 Getting Started
-Prerequisites
-
-Python 3.10+
-
-Gemini API Key
-
-Installation
+```bash
+# Clone the repository
 git clone https://github.com/gk-anonymous/Devops_RAG_Agent.git
 cd Devops_RAG_Agent
+
+# Create and activate virtual environment
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
+
+# Install dependencies
 pip install -r requirements.txt
 
-Usage
+# Set up environment variables
+echo "GEMINI_API_KEY=your_api_key_here" > .env
 
-Create a .env file in the root directory:
-
-GEMINI_API_KEY=your_gemini_api_key_here
-
-
-Run the Streamlit app:
-
+🖥 Usage
+bash
 streamlit run main.py
+Then open the local URL provided by Streamlit (typically http://localhost:8501)
 
-
-Open the local URL provided by Streamlit and start diagnosing your Docker/Kubernetes issues.
-
-📂 Project Structure
+🗂 Project Structure
+text
 Devops_RAG_Agent/
 │
-├─ data/               # Text files used for AI context
-├─ main.py             # Streamlit app & AI logic
-├─ requirements.txt    # Python dependencies
-├─ .env                # Gemini API Key (not committed)
-├─ .gitignore          # Ignore venv, .env, etc.
-└─ README.md
+├── data/               # Text files used for AI context
+├── main.py             # Streamlit app & AI logic
+├── requirements.txt    # Python dependencies
+├── .env                # Gemini API Key (not committed)
+├── .gitignore          # Ignore venv, .env, etc.
+└── README.md
+💡 Example Usage
+User Question:
+"How do I fix Kubernetes pod restarts?"
 
-💡 Usage Example
+AI Response:
 
-Paste logs or type your question:
+First check pod events:
 
-Q: How do I fix Kubernetes pod restarts?
+bash
+kubectl describe pod <pod-name>
+Common causes:
 
+Resource limits being hit
 
-Get AI-generated answer:
+Liveness probe failures
 
-A: Check the pod events using kubectl describe pod...
+OOM (Out of Memory) errors
 
+Next steps:
 
-Follow step-by-step guidance. The chat history keeps track of previous questions and answers.
+Examine logs with kubectl logs <pod-name>
+
+Check resource usage with kubectl top pod
+
+The chat history maintains context for follow-up questions.
 
 🌐 Tech Stack
+https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white
+https://img.shields.io/badge/Streamlit-FF4B4B?logo=Streamlit&logoColor=white
+https://img.shields.io/badge/Gemini_AI-4285F4?logo=google&logoColor=white
+https://img.shields.io/badge/RAG-Retrieval_Augmented_Generation-green
 
-Python & Streamlit (Frontend & UI)
+Frontend: Streamlit
 
-Gemini AI (LLM & Embeddings)
+AI Engine: Gemini AI (LLM & Embeddings)
 
-NumPy (Vector calculations)
+Vector Processing: NumPy
 
-RAG (Retrieval-Augmented Generation)
+Architecture: Retrieval-Augmented Generation (RAG)
 
 🔒 Security
+API keys stored in .env (excluded via .gitignore)
 
-API keys stored in .env (never committed).
+Virtual environment excluded from version control
 
-.gitignore includes venv/ and .env for security.
+No persistent storage of sensitive data
 
-📈 Future Improvements
+🚧 Future Improvements
+Multi-file log analysis support
 
-Add multi-file support for larger logs.
+Slack/Teams bot integration
 
-Integrate Slack/Teams bot for DevOps notifications.
+Automated remediation code snippets
 
-Add code snippet suggestions for automation tasks.
+Support for additional cloud providers
 
-⭐ Contributing
+Performance optimization for large documents
 
-Feel free to fork the repository, submit issues, or open pull requests!
+🤝 Contributing
+Contributions are welcome! Please:
 
-Live Demo: https://devopsragagent-mtpwmqrkxn2drsmvvm2rnw.streamlit.app/
+Fork the repository
+
+Create your feature branch (git checkout -b feature/AmazingFeature)
+
+Commit your changes (git commit -m 'Add some AmazingFeature')
+
+Push to the branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+📜 License
+Distributed under the MIT License. See LICENSE for more information.
